@@ -1,0 +1,38 @@
+version: '3.2'
+
+services:
+  jenkins:
+    build:
+      context: jenkins/
+    ports:
+      - 8084:8080
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /usr/local/bin/docker:/usr/local/bin/docker  
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - ucds
+    networks:
+      - backend
+
+  nexus:
+    build:
+      context: nexus/
+    volumes:
+      - nexus_data:/nexus-data
+    ports:
+      - 8085:8081
+    networks:
+      - backend
+
+
+
+networks:
+  backend:
+    driver: bridge
+
+volumes: 
+  jenkins_data:
+  nexus_data:
+
+    
