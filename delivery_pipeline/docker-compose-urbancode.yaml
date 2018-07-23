@@ -1,0 +1,12 @@
+version: '3.2'
+
+services:
+  udcs:
+    image: ibmcom/ucds:6.2.7.1.960481
+    ports:
+      - 8443:8443
+      - 7918:7918
+    
+networks:
+  backend:
+    driver: bridge
