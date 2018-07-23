@@ -65,7 +65,7 @@ aes128keyvqm6, Apr 25, 2018, SecretKeyEntry,
 Import key
 ```
 keytool -importkeystore \
--srckeystore import.keystore \
+-srckeystore import-jpetstore.keystore \
 -srcstorepass tempPassword \
 -srcstoretype jceks \
 -alias aes128keyvqm6 \
